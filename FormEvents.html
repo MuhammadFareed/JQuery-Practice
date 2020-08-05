@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .a {
+            background-color: aquamarine;
+        }
+        .c {
+            background-color: cadetblue;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events</title>
+</head>
+<body>
+    <form action="" id="sform">
+        <label class="a b">Name : <input type="text" name="name" id="name"></label>
+        <br><br><label class="a b">Class : <input type="text" id="class"></label>
+        <br><br><label class="a b">Country : 
+            <select name="country" id="country">
+                <option value="pakistan">Pakistan</option>
+                <option value="china">China</option>
+                <option value="bangladesh">Bangladesh</option>
+                <option value="germany">Germany</option>
+            </select>
+        </label>
+        <br><br><input type="submit" id="submit"> 
+        
+        <br><br>
+        <div id="newdiv"></div>
+
+    </form>
+
+    <button class="add">Add Class</button> <button class="remove">Remove Class</button> <button class="toggle">Toggle CLass</button>
+    <script src="jquery.js"></script>
+    <script>
+        $('document').ready(function() {
+            $('body').css('background-color','pink');
+
+            $('#name,#class,#country').focus(function() {
+                $(this).css('background-color','orange');
+            });
+
+            $('#name,#class,#country').blur(function() {
+                $(this).css('background-color','white');
+            });
+
+            $('#country').change(function() {
+                $(this).css('background-color','green');
+            });
+
+            $('#name').change(function() {
+                var value = $(this).val();
+                $('#newdiv').html(value);
+            });
+
+            $('#sform').submit(function() {
+                alert("Form Submitted")
+            });
+
+            $('document').ready(function() {
+                $('.add').click(function(){
+                    $('.a').addClass('c');
+                });
+                var abc = $('#name').css('class')
+                console.log(abc)
+            });
+        });
+    </script>
+
+    <script>
+    </script>
+</body>
+</html>
